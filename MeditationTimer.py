@@ -12,7 +12,7 @@ spaceing = "                                                                    
 if('frankfurt' in currentsystem): spaceing = "                                                                                                                      "
 if('server' in currentsystem): spaceing = "                                                                                                                      "
 
-# Print out each second.
+# Print once each second. 600 seconds is 10 minutes.
 for i in range(600):
     currenttime = int(time.time())
     print spaceing + str(currenttime-starttime)
