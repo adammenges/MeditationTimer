@@ -5,7 +5,11 @@ import platform
 starttime = int(time.time())
 currentsystem = str(platform.node()).lower()
 
-# I wanted the time to be in the center of the screen, hacky as it is, I'm just using spaces. These refer to the machine names of my laptop and desktop (because they have different screen sizes), change these for your machine.
+# I wanted the time to be in the center of the screen,
+# hacky as it is, I'm just using spaces. These refer to
+# the machine names of my laptop and desktop (because
+# they have different screen sizes), change these for
+# your machine, of course.
 spaceing = "                                                                                        "
 if('frankfurt' in currentsystem): spaceing = "                                                                                                                      "
 if('gutenberg' in currentsystem): spaceing = "                                                                                        "
