@@ -25,6 +25,8 @@ for i in range(60 * mins):
     print spaceing + str(currenttime-starttime)
     time.sleep(1)
 
+print('\a') # Mac OSX audio bell.
+
 # Print blank lines so the text above it slowly fades away.
 for i in range(200):
     print ""
