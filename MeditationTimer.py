@@ -17,7 +17,7 @@ except: pass
 spaceing = "                                                                                        "
 if('frankfurt' in currentsystem): spaceing = "                                                                                                                      "
 if('server' in currentsystem): spaceing = "                                                                                                                      "
-if('gutenberg' in currentsystem): spaceing = "                                                                                        "
+if('gutenberg' in currentsystem): spaceing = "                                                                                                "
 
 # Print once each second. 10 minutes, unless otherwise specified.
 for i in range(60 * mins):
