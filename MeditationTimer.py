@@ -13,11 +13,11 @@ except: pass
 # hacky as it is, I'm just using spaces. These refer to
 # the machine names of my laptop and desktop (because
 # they have different screen sizes), change these for
-# your machine, of course.
-spaceing = "                                                                                        "
+# your machine, of course. The default spacing it perfect 
+# for a 13" MacBook Pro. 
+spaceing = "                                                                                          "
 if('frankfurt' in currentsystem): spaceing = "                                                                                                                      "
 if('server' in currentsystem): spaceing = "                                                                                                                      "
-if('gutenberg' in currentsystem): spaceing = "                                                                                                "
 
 # Print once each second. 10 minutes, unless otherwise specified.
 for i in range(60 * mins):

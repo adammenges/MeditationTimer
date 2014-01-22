@@ -11,4 +11,4 @@ Usage
     python MeditationTimer # For 10 minutes
     python MeditationTimer 15 # For 15 minutes
    
-I'd suggest adding an alias in your bashrc for `MeditationTimer` to something like `med`, or adding it to your path. This way, you can just type `med 5` when you need to quickly meditate for 5 minutes.
+I'd suggest adding an alias in your bashrc for `python /--path-to-repo--/MeditationTimer.py` to something like `med`, or adding it to your path. This way, you can just type `med 5` when you need to quickly meditate for 5 minutes.
