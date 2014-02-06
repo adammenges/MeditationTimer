@@ -1,33 +1,68 @@
 #!/usr/bin/env python
 import time
-import platform
 import sys
+from optparse import OptionParser
+import os
 
+###################################################################################
+#                                                                                 #
+#                                       Setup                                     #
+#                                                                                 #
+###################################################################################
+
+## Add options
+parser = OptionParser()
+parser.add_option("-b", "--bodyScan", dest="bodyScan", default=False, action="store_true",
+                  help="Body Scan?")
+parser.add_option("-c", "--circuitTraining", dest="circuitTraining", default=False, action="store_true",
+                  help="Circuit Training?")
+parser.add_option("-t", "--time", dest="mins", default=10,
+                  help="Run time...")
+options, args = parser.parse_args()
+mins, bodyScan, circuitTraining = options.mins, options.bodyScan, options.circuitTraining
+
+# Grab term size
+rows, columns = map(lambda x: int(x), os.popen('stty size', 'r').read().split())
+
+# Start time 
 starttime = int(time.time())
-currentsystem = str(platform.node()).lower()
-mins = 10
-try: mins = int(sys.argv[1])
-except: pass
 
-# I wanted the time to be in the center of the screen,
-# hacky as it is, I'm just using spaces. These refer to
-# the machine names of my laptop and desktop (because
-# they have different screen sizes), change these for
-# your machine, of course. The default spacing it perfect 
-# for a 13" MacBook Pro. 
-spaceing = "                                                                                          "
-if('frankfurt' in currentsystem): spaceing = "                                                                                                                      "
-if('server' in currentsystem): spaceing = "                                                                                                                      "
+###################################################################################
+#                                                                                 #
+#                                     End Setup                                   #
+#                                                                                 #
+###################################################################################
 
-# Print once each second. 10 minutes, unless otherwise specified.
-for i in range(60 * mins):
-    currenttime = int(time.time())
-    print spaceing + str(currenttime-starttime)
-    time.sleep(1)
+def slowFadeAway(n):
+  # Let the user know the session it done.
+  for x in xrange(3): sys.stdout.write('\a')
 
-print('\a') # Mac OSX audio bell.
-
-# Print blank lines so the text above it slowly fades away.
-for i in range(200):
+  # Print blank lines so the text above it slowly fades away.
+  for i in range(n):
     print ""
     time.sleep(1)
+
+if bodyScan:
+  stages = [['start', 2], ['head', 1], ['shoulders', 1], ['stomach', 1], ['hips', 1], ['knees', 1], ['feet', 1], ['finsh', 2]]
+  for stage in stages:
+    for x in xrange(60 * stage[1]):
+      print stage[0].center(int(columns))
+      time.sleep(1)
+
+elif circuitTraining:
+  stages = [['general', 2], ['focus', 2]]
+  for run in xrange(3):
+    for stage in stages:
+      for x in xrange(60 * stage[1]):
+        print stage[0].center(int(columns))
+        time.sleep(1)
+
+else:
+  # Print once each second. 10 minutes, unless otherwise specified.
+  for i in xrange(60 * mins):
+    currenttime = int(time.time())
+    print str(currenttime-starttime).center(int(columns))
+    time.sleep(1)
+
+slowFadeAway(200)
+
