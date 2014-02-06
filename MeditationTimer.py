@@ -19,7 +19,7 @@ parser.add_option("-c", "--circuitTraining", dest="circuitTraining", default=Fal
 parser.add_option("-t", "--time", dest="mins", default=10,
                   help="Run time...")
 options, args = parser.parse_args()
-mins, bodyScan, circuitTraining = options.mins, options.bodyScan, options.circuitTraining
+mins, bodyScan, circuitTraining = int(options.mins), options.bodyScan, options.circuitTraining
 
 # Grab term size
 rows, columns = map(lambda x: int(x), os.popen('stty size', 'r').read().split())
