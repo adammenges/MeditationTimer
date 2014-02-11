@@ -35,7 +35,10 @@ starttime = int(time.time())
 
 def slowFadeAway(n):
   # Let the user know the session it done.
-  for x in xrange(3): sys.stdout.write('\a')
+  for x in xrange(3):
+    sys.stdout.write('\a')
+    sys.stdout.flush()
+    time.sleep(.5)
 
   # Print blank lines so the text above it slowly fades away.
   for i in range(n):
@@ -48,6 +51,7 @@ if bodyScan:
     for x in xrange(60 * stage[1]):
       print stage[0].center(int(columns))
       time.sleep(1)
+    sys.stdout.write('\a')
 
 elif circuitTraining:
   stages = [['general', 2], ['focus', 2]]
@@ -56,6 +60,7 @@ elif circuitTraining:
       for x in xrange(60 * stage[1]):
         print stage[0].center(int(columns))
         time.sleep(1)
+      sys.stdout.write('\a')
 
 else:
   # Print once each second. 10 minutes, unless otherwise specified.
