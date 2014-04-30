@@ -46,7 +46,7 @@ def slowFadeAway(n):
     time.sleep(1)
 
 if bodyScan:
-  stages = [['start', 2], ['head', 1], ['shoulders', 1], ['stomach', 1], ['hips', 1], ['knees', 1], ['feet', 1], ['finsh', 2]]
+  stages = [['start', 2], ['head', 1], ['shoulders', 1], ['stomach', 1], ['hips', 1], ['knees', 1], ['feet', 1], ['finish', 2]]
   for stage in stages:
     for x in xrange(60 * stage[1]):
       print stage[0].center(int(columns))
