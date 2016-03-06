@@ -33,14 +33,13 @@ starttime = int(time.time())
 #                                                                                 #
 ###################################################################################
 
+# Alert (\a) and print blank lines so the text above it slowly fades away.
 def slowFadeAway(n):
-  # Let the user know the session it done.
   for x in xrange(3):
     sys.stdout.write('\a')
     sys.stdout.flush()
     time.sleep(.5)
 
-  # Print blank lines so the text above it slowly fades away.
   for i in range(n):
     print ""
     time.sleep(1)
@@ -70,4 +69,3 @@ else:
     time.sleep(1)
 
 slowFadeAway(200)
-
